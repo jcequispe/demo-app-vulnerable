@@ -41,7 +41,7 @@
     <dependencies>
         <!-- Utilities wrapper library (from BOM) -->
         <dependency>
-            <groupId>com.demo</groupId>
+            <groupId>com.github.jcequispe</groupId>
             <artifactId>demo-utilities-jakarta</artifactId>
         </dependency>
 
