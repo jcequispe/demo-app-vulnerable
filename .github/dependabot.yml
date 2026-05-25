@@ -1,4 +1,5 @@
 version: 2
+# Trigger Dependabot update with valid credentials
 registries:
   utilities-registry:
     type: maven-repository
