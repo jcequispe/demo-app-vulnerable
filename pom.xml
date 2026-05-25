@@ -18,6 +18,32 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <!-- Repositories para encontrar dependencias internas -->
+    <repositories>
+        <repository>
+            <id>github-bom</id>
+            <name>GitHub Packages - BOM</name>
+            <url>https://maven.pkg.github.com/jcequispe/demo-bom-jakarta</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>github-utilities</id>
+            <name>GitHub Packages - Utilities</name>
+            <url>https://maven.pkg.github.com/jcequispe/demo-utilities-jakarta</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <!-- Importa el BOM -->
     <dependencyManagement>
         <dependencies>
