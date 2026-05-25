@@ -14,8 +14,8 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <!-- Importa el BOM -->
@@ -32,16 +32,18 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Utilities wrapper library (from BOM) -->
+        <!-- Utilities wrapper library -->
         <dependency>
             <groupId>com.demo</groupId>
             <artifactId>demo-utilities-jakarta</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
-        <!-- Apache Commons Collections (from BOM) - Can be 3.2.1 or 4.0+ -->
+        <!-- Apache Commons Collections - VULNERABLE 3.2.1 -->
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
         </dependency>
 
         <!-- Spring Boot Web con Jakarta -->
