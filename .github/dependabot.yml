@@ -1,13 +1,26 @@
 version: 2
+registries:
+  utilities-registry:
+    type: maven-repository
+    url: https://maven.pkg.github.com/jcequispe/demo-utilities-jakarta
+    username: jcequispe
+    password: ${{ secrets.GITHUB_TOKEN }}
+  bom-registry:
+    type: maven-repository
+    url: https://maven.pkg.github.com/jcequispe/demo-bom-jakarta
+    username: jcequispe
+    password: ${{ secrets.GITHUB_TOKEN }}
 updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
       interval: "daily"
-    security-updates-only: true
+    registries:
+      - utilities-registry
+      - bom-registry
     open-pull-requests-limit: 10
     reviewers:
       - "jcequispe"
     commit-message:
-      prefix: "security"
+      prefix: "bump"
       include: "scope"
