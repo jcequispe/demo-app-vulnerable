@@ -1,24 +1,9 @@
 version: 2
-# Trigger Dependabot update with valid credentials
-registries:
-  utilities-registry:
-    type: maven-repository
-    url: https://maven.pkg.github.com/jcequispe/
-    username: jcequispe
-    password: $DEPENDABOT_GITHUB_TOKEN
-  bom-registry:
-    type: maven-repository
-    url: https://maven.pkg.github.com/jcequispe/
-    username: jcequispe
-    password: $DEPENDABOT_GITHUB_TOKEN
 updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
       interval: "daily"
-    registries:
-      - utilities-registry
-      - bom-registry
     open-pull-requests-limit: 10
     reviewers:
       - "jcequispe"
