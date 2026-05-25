@@ -3,12 +3,12 @@ version: 2
 registries:
   utilities-registry:
     type: maven-repository
-    url: https://maven.pkg.github.com/jcequispe/demo-utilities-jakarta
+    url: https://maven.pkg.github.com/jcequispe/
     username: jcequispe
     password: $DEPENDABOT_GITHUB_TOKEN
   bom-registry:
     type: maven-repository
-    url: https://maven.pkg.github.com/jcequispe/demo-bom-jakarta
+    url: https://maven.pkg.github.com/jcequispe/
     username: jcequispe
     password: $DEPENDABOT_GITHUB_TOKEN
 updates:
