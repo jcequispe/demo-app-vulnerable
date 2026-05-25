@@ -32,32 +32,25 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Utilities wrapper library -->
+        <!-- Utilities wrapper library (from BOM) -->
         <dependency>
             <groupId>com.demo</groupId>
             <artifactId>demo-utilities-jakarta</artifactId>
-            <version>1.0.0</version>
         </dependency>
 
-        <!-- Apache Commons Collections - VULNERABLE 3.2.1 -->
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2.1</version>
-        </dependency>
-
-        <!-- Spring Boot Web con Jakarta -->
+        <!-- Spring Boot Web (from BOM) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Boot Undertow (from BOM) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
-        <!-- Jakarta Servlet -->
+        <!-- Jakarta Servlet (from BOM) -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
