@@ -16,6 +16,7 @@ updates:
     schedule:
       interval: "daily"
       time: "13:01"
+    security-updates-only: true
     registries:
       - utilities-registry
       - bom-registry
