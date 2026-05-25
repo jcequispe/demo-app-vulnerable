@@ -1,0 +1,63 @@
+name: Auto Version Bump
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'pom.xml'
+
+jobs:
+  bump-version:
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+    - name: Checkout PR branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get current version
+      id: version
+      run: |
+        VERSION=$(grep -m1 '<version>' pom.xml | sed 's/.*<version>//;s/<.*//')
+        echo "current=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Bump patch version
+      id: bump
+      run: |
+        VERSION="${{ steps.version.outputs.current }}"
+        IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+        NEW_PATCH=$((PATCH + 1))
+        NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
+        echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+    - name: Update pom.xml version
+      run: |
+        sed -i "s/<version>${{ steps.version.outputs.current }}<\/version>/<version>${{ steps.bump.outputs.new }}<\/version>/" pom.xml
+
+    - name: Commit version bump
+      run: |
+        git config --local user.email "dependabot[bot]@users.noreply.github.com"
+        git config --local user.name "dependabot[bot]"
+        git add pom.xml
+        git commit -m "Bump: version ${{ steps.version.outputs.current }} → ${{ steps.bump.outputs.new }} (patch)"
+
+    - name: Push changes
+      run: git push
+
+    - name: Comment PR
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '✅ Auto-bumped version: `${{ steps.version.outputs.current }}` → `${{ steps.bump.outputs.new }}`'
+          })
