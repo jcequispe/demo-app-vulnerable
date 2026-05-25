@@ -7,7 +7,7 @@
 
     <groupId>com.demo</groupId>
     <artifactId>demo-app-vulnerable</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
     <name>Demo App Vulnerable</name>
 
@@ -50,7 +50,7 @@
             <dependency>
                 <groupId>com.demo</groupId>
                 <artifactId>demo-bom-jakarta</artifactId>
-                <version>1.0.1</version>
+                <version>1.0.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
