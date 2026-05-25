@@ -7,7 +7,7 @@
 
     <groupId>com.demo</groupId>
     <artifactId>demo-app-vulnerable</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>Demo App Vulnerable</name>
 
