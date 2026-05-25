@@ -15,6 +15,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+      time: "13:01"
     registries:
       - utilities-registry
       - bom-registry
