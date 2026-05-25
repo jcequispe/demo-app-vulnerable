@@ -3,13 +3,11 @@ updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
+    security-updates-only: true
     open-pull-requests-limit: 10
     reviewers:
       - "jcequispe"
-    allow:
-      - dependency-type: "direct"
-      - dependency-type: "indirect"
     commit-message:
-      prefix: "deps"
+      prefix: "security"
       include: "scope"
