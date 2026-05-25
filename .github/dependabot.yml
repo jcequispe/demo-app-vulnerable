@@ -3,13 +3,9 @@ registries:
   utilities-registry:
     type: maven-repository
     url: https://maven.pkg.github.com/jcequispe/demo-utilities-jakarta
-    username: jcequispe
-    password: ${{ secrets.GITHUB_TOKEN }}
   bom-registry:
     type: maven-repository
     url: https://maven.pkg.github.com/jcequispe/demo-bom-jakarta
-    username: jcequispe
-    password: ${{ secrets.GITHUB_TOKEN }}
 updates:
   - package-ecosystem: "maven"
     directory: "/"
